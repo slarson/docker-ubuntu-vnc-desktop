@@ -20,7 +20,7 @@ RUN apt-get update \
 RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
 
 RUN apt-get update \
-    && apt-get install -y --force-yes --no-install-recommends linux-image-extra-$(uname -r) \
+    && apt-get install -y --force-yes --no-install-recommends linux-image-extra-3.13.0-61-generic \
     apparmor docker-engine
     
 RUN apt-get autoclean \
