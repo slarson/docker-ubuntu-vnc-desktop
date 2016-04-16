@@ -19,9 +19,11 @@ RUN apt-get update \
 
 RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
 
+RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends linux-image-extra-3.13.0-61-generic \
-    apparmor docker-engine
+    apparmor docker-engine vuze
     
 RUN apt-get autoclean \
     && apt-get autoremove \
