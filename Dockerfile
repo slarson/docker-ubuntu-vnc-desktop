@@ -64,6 +64,7 @@ RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
 
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run_eclipse.sh /run_eclipse.sh
+ADD setup_dropbox.sh /setup_dropbox.sh
 RUN chmod +x /*.sh
 
 ADD noVNC /noVNC/
