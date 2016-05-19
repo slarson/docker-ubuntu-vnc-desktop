@@ -26,11 +26,11 @@ RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9316A7BC7917B12 \
 RUN apt-get update \
     && apt-get install -y --force-yes software-properties-common python-software-properties \
     && apt-add-repository ppa:freenx-team/trusty \
-    && apt-get update \
-    && apt-get install -y --force-yes --no-install-recommends supervisor \
+    && apt-get update
+    
+RUN apt-get install -y --force-yes --no-install-recommends supervisor \
         pwgen sudo vim-tiny x11vnc x11vnc-data \
-        net-tools \
-        lxde xvfb \
+        net-tools lxde xvfb \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         libreoffice firefox \
         fonts-wqy-microhei nginx \
@@ -39,8 +39,7 @@ RUN apt-get update \
         apt-transport-https ca-certificates \
         wget openssh-server pwgen sudo vim-tiny \
         gtk2-engines-murrine ttf-ubuntu-font-family \
-     && apt-get install -y --force-yes \
-        xfce4 xfce4-goodies freenx-server libreoffice-gnome
+     && apt-get install -y --force-yes xfce4 xfce4-goodies freenx-server libreoffice-gnome
 
 #Install Dropbox 
 RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
