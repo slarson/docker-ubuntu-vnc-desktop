@@ -12,6 +12,10 @@ sudo -u ubuntu -i bash -c "mkdir -p /home/ubuntu/.config/pcmanfm/LXDE/ \
 cd /web && ./run.py > /var/log/web.log 2>&1 &
 nginx -c /etc/nginx/nginx.conf
 
+service docker start
+
+~/.dropbox-dist/dropboxd
+
 if [ ! -f /.root_pw_set ]; then
 	/set_root_pw.sh
 fi
