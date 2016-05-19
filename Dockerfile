@@ -37,6 +37,7 @@ RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar x
 #RUN apt-get install azureus
 
 #Install docker engine
+RUN echo "deb http://cz.archive.ubuntu.com/ubuntu trusty main" >> /etc/apt/sources.list.d/docker.list
 RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
 
 RUN apt-get update \
@@ -44,7 +45,7 @@ RUN apt-get update \
     
 RUN apt-cache policy docker-engine
 
-RUN apt-get install -y --force-yes --no-install-recommends apparmor linux-image-extra-virtual \
+RUN apt-get install -y --force-yes --no-install-recommends apparmor libsystemd-journal0 linux-image-extra-virtual \
      docker-engine
     
 RUN apt-get autoclean \
