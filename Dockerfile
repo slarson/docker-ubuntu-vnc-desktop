@@ -23,7 +23,7 @@ deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main\n\
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9316A7BC7917B12 \
     && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D 
     
-RUN apt-get update \
+RUN apt-get install -y --force-yes software-properties-common python-software-properties \
     && apt-add-repository ppa:freenx-team/trusty \
     && apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
@@ -38,8 +38,8 @@ RUN apt-get update \
         apt-transport-https ca-certificates \
         wget openssh-server pwgen sudo vim-tiny \
         gtk2-engines-murrine ttf-ubuntu-font-family \
-     && apt-get install -y --force-yes software-properties-common python-software-properties \
-        xfce4 xfce4-goodies freenx-server libreoffice-gnome \
+     && apt-get install -y --force-yes \
+        xfce4 xfce4-goodies freenx-server libreoffice-gnome
 
 #Install Dropbox 
 RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
