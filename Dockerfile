@@ -3,7 +3,9 @@ FROM babim/ubuntubase
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
-RUN apt-get install -y openssh-server xubuntu-desktop 
+RUN apt-get update
+
+RUN apt-get install -y openssh-server 
 
 RUN add-apt-repository ppa:x2go/stable
 
@@ -15,7 +17,7 @@ RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         pwgen sudo vim-tiny x11vnc x11vnc-data \
         net-tools \
-        lxde x11vnc xvfb \
+        lxde xvfb \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         libreoffice firefox \
         fonts-wqy-microhei \
