@@ -21,6 +21,7 @@ RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt
 
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9316A7BC7917B12 \
     && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
+    && apt-get update \
     && apt-add-repository ppa:freenx-team/trusty \
     && apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
