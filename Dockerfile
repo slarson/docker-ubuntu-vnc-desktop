@@ -21,7 +21,7 @@ RUN apt-get update \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         libreoffice firefox \
         fonts-wqy-microhei \
-        nginx \
+        nginx vuze \
         python-pip python-dev build-essential python-setuptools \
         mesa-utils libgl1-mesa-dri \
         apt-transport-https ca-certificates \
@@ -31,10 +31,14 @@ RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt
 
 RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 
-#Don't try to install docker or vuze
-#RUN apt-get update \
-#    && apt-get install -y --force-yes --no-install-recommends linux-image-extra-3.13.0-69-generic \
-#    apparmor docker-engine vuze
+
+RUN apt-get update \
+    && apt-get purge lxc-docker
+    
+RUN apt-cache policy docker-engine
+
+RUN apt-get install -y --force-yes --no-install-recommends apparmor linux-image-extra-\$\(uname\ -r\) \
+     docker-engine
     
 RUN apt-get autoclean \
     && apt-get autoremove \
