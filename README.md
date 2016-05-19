@@ -66,6 +66,10 @@ Host : (Your Server IP) Port : 2222 Username : dockerx Password : (get it from t
 
 Select the Session TYPE as : ~~XFCE~~  LXDE
 
+Update connection speed to: WAN
+
+Choose Compression method: 16m-png
+
 You can also SSH to the docker container directly with root or dockerx users and their passwords over the port 2222 with linux ssh or windows putty client.
 
 
