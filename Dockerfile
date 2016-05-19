@@ -11,7 +11,7 @@ RUN add-apt-repository ppa:x2go/stable
 
 RUN apt-get update
 
-RUN apt-get install x2goserver x2goserver-xsession pwgen -y
+RUN apt-get install --allow-unauthenticated -y --force-yes x2goserver x2goserver-xsession pwgen 
 
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
