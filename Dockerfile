@@ -21,16 +21,23 @@ RUN apt-get update \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         libreoffice firefox \
         fonts-wqy-microhei \
-        nginx vuze \
+        nginx \
         python-pip python-dev build-essential python-setuptools \
         mesa-utils libgl1-mesa-dri \
         apt-transport-https ca-certificates \
     && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D 
 
-RUN aecho "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
-
+#Install Dropbox
 RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 
+#Install Vuze
+#RUN echo "deb http://archive.getdeb.net/ubuntu trusty-getdeb apps" >> /etc/apt/sources.list
+#RUN wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+#RUN apt-get update
+#RUN apt-get install azureus
+
+#Install docker engine
+RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
 
 RUN apt-get update \
     && apt-get purge lxc-docker
