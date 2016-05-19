@@ -13,9 +13,9 @@ deb http://ppa.launchpad.net/chris-lea/node.js/ubuntu trusty main\n\
 
 # no Upstart or DBus
 # https://github.com/dotcloud/docker/issues/1724#issuecomment-26294856
-RUN apt-mark hold initscripts udev plymouth mountall \
-    && dpkg-divert --local --rename --add /sbin/initctl \
-    && ln -sf /bin/true /sbin/initctl
+#RUN apt-mark hold initscripts udev plymouth mountall \
+#    && dpkg-divert --local --rename --add /sbin/initctl \
+#    && ln -sf /bin/true /sbin/initctl
 
 RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
 
