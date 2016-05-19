@@ -14,8 +14,6 @@ nginx -c /etc/nginx/nginx.conf
 
 service docker start
 
-sudo docker pull slarson/docker-eclipse
-
 if [ ! -f /.root_pw_set ]; then
 	/set_root_pw.sh
 fi
