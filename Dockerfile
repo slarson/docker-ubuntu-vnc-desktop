@@ -5,7 +5,7 @@ ENV HOME /root
 
 RUN apt-get update
 
-RUN apt-get install -y openssh-server 
+RUN apt-get install -y --force-yes openssh-server software-properties-common
 
 RUN add-apt-repository ppa:x2go/stable
 
