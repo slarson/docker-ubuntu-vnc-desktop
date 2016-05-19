@@ -3,6 +3,14 @@ FROM babim/ubuntubase
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
+RUN apt-get install -y openssh-server xubuntu-desktop 
+
+RUN add-apt-repository ppa:x2go/stable
+
+RUN apt-get update
+
+RUN apt-get install x2goserver x2goserver-xsession pwgen -y
+
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         pwgen sudo vim-tiny x11vnc x11vnc-data \
@@ -32,6 +40,16 @@ RUN apt-get autoclean \
 ADD web /web/
 RUN pip install -r /web/requirements.txt
 
+RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config
+RUN sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
+RUN sed -i "s/#PasswordAuthentication/PasswordAuthentication/g" /etc/ssh/sshd_config
+
+
+RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
+
+ADD set_root_pw.sh /set_root_pw.sh
+RUN chmod +x /*.sh
+
 ADD noVNC /noVNC/
 ADD nginx.conf /etc/nginx/sites-enabled/default
 ADD startup.sh /
@@ -39,5 +57,6 @@ ADD supervisord.conf /etc/supervisor/conf.d/
 ADD doro-lxde-wallpapers /usr/share/doro-lxde-wallpapers/
 
 EXPOSE 6080
+EXPOSE 22
 WORKDIR /root
 ENTRYPOINT ["/startup.sh"]
