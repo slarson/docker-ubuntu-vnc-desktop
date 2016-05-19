@@ -1,9 +1,6 @@
 #!/bin/bash
 
-sudo mkdir Dropbox
 sudo chmod 777 Dropbox
-
-sudo /root/.dropbox-dist/dropboxd &
 
 sudo mkdir -p Dropbox/cloud-workspace/.eclipse-docker
 sudo chmod 777 Dropbox/cloud-workspace
