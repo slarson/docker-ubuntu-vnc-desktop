@@ -59,8 +59,10 @@ RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSep
 RUN sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 RUN sed -i "s/#PasswordAuthentication/PasswordAuthentication/g" /etc/ssh/sshd_config
 
-
 RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
+
+RUN service docker start
+RUN docker pull slarson/docker-eclipse
 
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run_eclipse.sh /run_eclipse.sh
