@@ -11,7 +11,7 @@ RUN add-apt-repository ppa:x2go/stable
 
 RUN apt-get update
 
-RUN apt-get install --allow-unauthenticated -y --force-yes x2goserver x2goserver-xsession pwgen 
+RUN apt-get install --allow-unauthenticated -y --force-yes x2goserver x2goserver-xsession pwgen
 
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
@@ -25,7 +25,7 @@ RUN apt-get update \
         python-pip python-dev build-essential python-setuptools \
         mesa-utils libgl1-mesa-dri \
         apt-transport-https ca-certificates \
-    && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D 
+    && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
 #Install Dropbox
 RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
@@ -42,12 +42,12 @@ RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt
 
 RUN apt-get update \
     && apt-get purge lxc-docker
-    
+
 RUN apt-cache policy docker-engine
 
 RUN apt-get install -y --force-yes --no-install-recommends apparmor libsystemd-journal0 linux-image-extra-virtual \
      docker-engine
-    
+
 RUN apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
@@ -61,10 +61,9 @@ RUN sed -i "s/#PasswordAuthentication/PasswordAuthentication/g" /etc/ssh/sshd_co
 
 RUN mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix
 
-RUN sudo service docker start && sudo docker pull slarson/docker-eclipse
-
 ADD set_root_pw.sh /set_root_pw.sh
 ADD run_eclipse.sh /run_eclipse.sh
+ADD setup_eclipse.sh /setup_eclipse.sh
 ADD setup_dropbox.sh /setup_dropbox.sh
 RUN chmod +x /*.sh
 
