@@ -25,10 +25,18 @@ RUN apt-get update \
         python-pip python-dev build-essential python-setuptools \
         mesa-utils libgl1-mesa-dri \
         apt-transport-https ca-certificates \
+        curl git \
     && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
 #Install Dropbox
 RUN cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+
+#Install packagecloud
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+#INSTALL git-lfs
+RUN apt-get update \
+    && apt-get install -y --force-yes --no-install-recommends git-lfs
 
 #Install Vuze
 #RUN echo "deb http://archive.getdeb.net/ubuntu trusty-getdeb apps" >> /etc/apt/sources.list
