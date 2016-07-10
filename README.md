@@ -23,15 +23,15 @@ docker-ubuntu-x2go-desktop
 
 ![](http://i.giphy.com/3oEjI3icaQcIhTyo1y.gif)
 
-* Once the node is configured, load up the docker image as a new service
+* Once the node is configured, load up the docker image as a new service (slarson/docker-ubuntu-vnc-desktop)
 
 ![](http://i.giphy.com/3o72F933gbnE250OM8.gif)
 
-* Configure the service with the docker-x2go-eclipse tag instead of latest
+* Configure the service with the "docker-x2go-eclipse tag" instead of latest
 
 ![](http://i.giphy.com/26gJAjEDbvZOV8hZC.gif)
 
-* Publish port 22
+* Publish port 22.  Note that it will be mapped to a random port that you will connect to with your client.  You will note it below.
 
 ![](http://i.giphy.com/3o6ZtaSFnUywNgeH3G.gif)
 
