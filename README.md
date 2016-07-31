@@ -19,7 +19,7 @@ docker-ubuntu-x2go-desktop
 
 ![](http://i.giphy.com/3oEjHEcbHVzZJGMYIE.gif)
 
-* Watch as it loads up
+* Watch as it loads up. *[NOTE: You will want to terminate this node when you are finished -- leaving it up will run up charges on AWS !!]*
 
 ![](http://i.giphy.com/3oEjI3icaQcIhTyo1y.gif)
 
