@@ -43,6 +43,8 @@ docker-ubuntu-x2go-desktop
 
 ![](http://i.giphy.com/3o6ZtcvIzsJ9WIxIgU.gif)
 
+*[Note: Stopping a service does not terminate the corresponding AWS node.  They need to be done separately.  Leaving a node running will result in charges from AWS even if the service has been stopped.]*
+
 
 
 # Run/connect to server with a Client
