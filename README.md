@@ -27,7 +27,7 @@ docker-ubuntu-x2go-desktop
 
 ![](http://i.giphy.com/3o72F933gbnE250OM8.gif)
 
-* Configure the service with the "docker-x2go-eclipse" tag instead of "latest"
+* Configure the service with the "x2go-docker-eclipse" tag instead of "latest"
 
 ![](http://i.giphy.com/26gJAjEDbvZOV8hZC.gif)
 
